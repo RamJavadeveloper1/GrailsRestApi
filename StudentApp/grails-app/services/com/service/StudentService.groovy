@@ -25,6 +25,9 @@ class StudentService {
     def get(id) {
         Student.get(id)
     }
+     def getByName(name) {
+        Student.findByFirstName(name)
+    }
 
     def update(id, student) {
         Student s = Student.get(id)

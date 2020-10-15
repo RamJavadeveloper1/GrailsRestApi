@@ -5,6 +5,7 @@ class UrlMappings {
     static mappings = {
         delete "/college/$controller/$id(.$format)?"(action:"delete")
         get "/college/$controller(.$format)?"(action:"index")
+        get "/college/$controller/findByName/$name(.$format)?"(action:"getByName")
         get "/college/$controller/$id(.$format)?"(action:"show")
         post "/college/$controller(.$format)?"(action:"save")
         put "/college/$controller/update/$id(.$format)?"(action:"update")

@@ -37,4 +37,8 @@ class StudentController {
          redirect action:"index", method:"GET"
     }
 
+    def getByName(String name){
+         respond StudentService.getByName(name)
+    }
+
 }
