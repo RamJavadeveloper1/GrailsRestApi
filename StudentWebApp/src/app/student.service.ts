@@ -24,9 +24,15 @@ export class StudentService {
   /**
    * getDoctorById
    */
-  public getStudentById(StudentId) {
+  public getStudentById(id) {
     return this.http.get(
-      'http://localhost:8080/college/student/' + StudentId
+      'http://localhost:8080/college/student/' + id
+    );
+  }
+
+  public getStudent(id, student : Student) {
+    return this.http.get(
+      'http://localhost:8080/college/student/' + id
     );
   }
 
@@ -51,10 +57,10 @@ export class StudentService {
   /**
    * UpdateDoctorById
    */
-  public updateStudentById( id,student: Student,) {
+  public updateStudent( id, value: Student) {
     return this.http.put(
-      'http://localhost:8080/college/student/' + id,
-      student,
+      'http://localhost:8080/college/student/update/' + id,
+      value,
       { responseType: 'text' as 'json' }
     );
 

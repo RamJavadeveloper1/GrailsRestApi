@@ -61,10 +61,12 @@ export class StudentListComponent implements OnInit {
   /**
    * deletedoctorById()
    */
-  public updateStudentById(id: number) {
-    let resp = this.service.updateStudentById(id, this.students);
-    return resp.subscribe(()=> this.getAllData());
-  //  return resp.subscribe((data) => (this.students = data));
+  public updateStudent(id: number) {
+    this.router.navigate(['students/edit', id]);
+  }
+
+  employeeDetails(id: number){
+    this.router.navigate(['details', id]);
   }
 
 }
