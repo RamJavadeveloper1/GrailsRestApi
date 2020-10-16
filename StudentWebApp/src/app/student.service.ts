@@ -30,7 +30,7 @@ export class StudentService {
     );
   }
 
-  public getStudent(id, student : Student) {
+  public getStudent(id) {
     return this.http.get(
       'http://localhost:8080/college/student/' + id
     );

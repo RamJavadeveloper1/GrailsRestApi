@@ -36,7 +36,7 @@
 </div>
 <div class="container">
   <div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
+    <div class="row col-md-10 col-md-offset-2 custyle">
       <table class="table table-striped custab">
         <thead>
           <tr>
@@ -44,6 +44,7 @@
             <th>FirstName</th>
             <th>LastName</th>
             <th>Email</th>
+            <th>Age</th>
             <th>City</th>
             <th>Action</th>
           </tr>
@@ -54,6 +55,7 @@
             <td>{{ student.firstName }}</td>
             <td>{{ student.lastName }}</td>
             <td>{{ student.email }}</td>
+            <td>{{ student.age }}</td>
             <td>{{ student.city }}</td>
             <td class="text-center">
               <button
@@ -73,7 +75,7 @@
                 (click)="updateStudent(student.id)"
                 style="margin-left: 10px"
               >
-                <span class="glyphicon glyphicon-search"> </span> Update
+                <span class="glyphicon glyphicon-ok"> </span> Update
               </button>
             </td>
           </tr>

@@ -35,25 +35,9 @@ export class UpdateStudentComponent implements OnInit {
     let resp = this.service.updateStudent(this.id, this.student);
     resp.subscribe((data) => {
       console.log(data);
-      this.router.navigate(['/login']);
     });
   }
-
-  updateEmployee() {
-    this.service.updateStudent(this.id, this.student).subscribe(
-      (data) => {
-        alert("Update SuccessFully");
-        this.student = new Student();
-        this.gotoList();
-      },
-      (error) => console.log(error)
-    );
-  }
-
-  onSubmit() {
-    this.updateEmployee();
-  }
-
+  
   gotoList() {
     this.router.navigate(['/students']);
   }

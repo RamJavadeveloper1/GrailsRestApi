@@ -6,14 +6,13 @@ import { Student } from '../student';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.css']
+  styleUrls: ['./student-list.component.css'],
 })
 export class StudentListComponent implements OnInit {
-
   students: any;
   id: number;
   name: string;
-  student: Student = new Student();
+  massage: string;
   popoverTitle = 'Record Delete Confirmation';
   popoverMessage = 'Do you really want to delete ?';
   confirmClicked = false;
@@ -23,26 +22,26 @@ export class StudentListComponent implements OnInit {
     public service: StudentService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): any {
     let resp = this.service.getAllStudent();
     resp.subscribe((data) => (this.students = data));
   }
 
-
-  getAllData() {
-    let resp= this.service.getAllStudent();
+  getAllData(): any {
+    let resp = this.service.getAllStudent();
     resp.subscribe((data) => (this.students = data));
-
   }
 
-/**
+  /**
    * findStudentById()
    */
-  public findStudentById() {
+  public findStudentById(): any {
     let resp = this.service.getStudentById(this.id);
-    return resp.subscribe((data) => (this.students = data));
+    return resp.subscribe((data) => {
+      this.students = data;
+    });
   }
 
   /**
@@ -50,19 +49,22 @@ export class StudentListComponent implements OnInit {
    */
   public findStudentByName() {
     let resp = this.service.getStudentByName(this.name);
-    return resp.subscribe((data) => (this.students = data));
+    return resp.subscribe((data) => (this.students = [data]));
   }
 
   /**
    * deletedoctorById()
    */
-  public deleteStudentById(id: number) {
-    
-      let resp = this.service.deletStudentById(id);
-      return resp.subscribe(()=> this.getAllData());
-    
-    
-  //  return resp.subscribe((data) => (this.students = data));
+  public deleteStudentById(id: number): any {
+    let resp = this.service.deletStudentById(id);
+    resp.subscribe((data) => {
+      this.getAllData();
+      // this.students = data;
+      // this.massage = data;
+      // this.router.navigate(['/students']);
+    });
+
+    //  return resp.subscribe((data) => (this.students = data));
   }
 
   /**
@@ -71,6 +73,4 @@ export class StudentListComponent implements OnInit {
   public updateStudent(id: number) {
     this.router.navigate(['students/edit', id]);
   }
-
-
 }
