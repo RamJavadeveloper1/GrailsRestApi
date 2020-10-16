@@ -11,6 +11,8 @@ import { StudentService } from '../student.service';
 export class UpdateStudentComponent implements OnInit {
   id: number;
   student: any = new Student();
+  confirmClicked = false;
+  cancelClicked = false;
 
   constructor(
     private route: ActivatedRoute,
