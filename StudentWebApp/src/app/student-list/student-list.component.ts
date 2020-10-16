@@ -14,6 +14,10 @@ export class StudentListComponent implements OnInit {
   id: number;
   name: string;
   student: Student = new Student();
+  popoverTitle = 'Record Delete Confirmation';
+  popoverMessage = 'Do you really want to delete ?';
+  confirmClicked = false;
+  cancelClicked = false;
 
   constructor(
     public service: StudentService,
@@ -53,8 +57,11 @@ export class StudentListComponent implements OnInit {
    * deletedoctorById()
    */
   public deleteStudentById(id: number) {
-    let resp = this.service.deletStudentById(id);
-    return resp.subscribe(()=> this.getAllData());
+    
+      let resp = this.service.deletStudentById(id);
+      return resp.subscribe(()=> this.getAllData());
+    
+    
   //  return resp.subscribe((data) => (this.students = data));
   }
 
@@ -65,8 +72,5 @@ export class StudentListComponent implements OnInit {
     this.router.navigate(['students/edit', id]);
   }
 
-  employeeDetails(id: number){
-    this.router.navigate(['details', id]);
-  }
 
 }

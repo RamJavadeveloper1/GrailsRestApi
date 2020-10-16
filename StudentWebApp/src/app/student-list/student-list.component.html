@@ -18,17 +18,15 @@
           name="name"
           [(ngModel)]="name"
         />
-        <div style="text-align: right ; margin-right: 40px;">  
-  
+        <div style="text-align: right; margin-right: 40px">
           <a routerLink="/login" class="btn btn-link">Logout</a>
-            
-        </div>  
+        </div>
         <span class="input-group-btn">
           <button
             class="btn btn-danger"
-            type="button" 
-            (click)="findStudentByName()">
-
+            type="button"
+            (click)="findStudentByName()"
+          >
             <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
@@ -59,12 +57,25 @@
             <td>{{ student.city }}</td>
             <td class="text-center">
               <button
-                class="btn btn-danger btn-xs" routerLink="/reload"
-                (click)="deleteStudentById(student.id)">
+                mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="right"
+                (confirm)="deleteStudentById(student.id)"
+                (cancel)="cancelClicked = true"
+                class="btn btn-danger btn-xs"
+                routerLink="/reload"
+                
+              >
                 <span class="glyphicon glyphicon-remove"> </span> Delete
               </button>
-              <button  class="btn btn-info  btn-xs" (click)="updateStudent(student.id)" style="margin-left: 10px"><span class="glyphicon glyphicon-search"> </span> Update</button>
- 
+              <button
+                class="btn btn-info btn-xs"
+                (click)="updateStudent(student.id)"
+                style="margin-left: 10px"
+              >
+                <span class="glyphicon glyphicon-search"> </span> Update
+              </button>
             </td>
           </tr>
           <a routerLink="/login">Login</a>
@@ -73,6 +84,4 @@
     </div>
   </div>
 </div>
-<div>
-    
-</div>
+<div></div>

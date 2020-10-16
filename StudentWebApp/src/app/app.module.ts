@@ -10,6 +10,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { LoginComponent } from './login/login.component';
 import { StudentService } from './student.service';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'}),
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]

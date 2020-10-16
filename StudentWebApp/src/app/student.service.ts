@@ -17,7 +17,7 @@ export class StudentService {
     );
   }
 
-  public getAllStudent() {
+  public getAllStudent(): any {
     return this.http.get('http://localhost:8080/college/student');
   }
 
@@ -48,7 +48,7 @@ export class StudentService {
   /**
    * deletDoctorById
    */
-  public deletStudentById(id) {
+  public deletStudentById(id): any {
     return this.http.delete(
       'http://localhost:8080/college/student/' + id
     );
